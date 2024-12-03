@@ -1,0 +1,44 @@
+### Register User Test 
+POST http://localhost:3010/register
+Content-Type: application/json
+
+{
+  "username": "Nandi",
+  "password": "Password"
+}
+### Login User Test 
+POST http://localhost:3010/login
+Content-Type: application/json
+
+{
+  "username": "Nandi",
+  "password": "Password"
+}
+
+### Create Task Test
+POST http://localhost:3010/tasks/create
+Content-Type: application/json
+
+{
+  "user_id": 3,
+  "title": "complete assessment",
+  "description": "Change Typescript project to JS", 
+  "due_date": "2024-12-01",
+  "status": false
+}
+
+### Update Task test 
+POST http://localhost:3010/tasks/update
+Content-Type: application/json
+
+{
+  "title": "complete assessment"
+}
+
+### delete Task Test 
+POST http://localhost:3010/tasks/delete
+Content-Type: application/json
+
+{
+  "title": "complete assessment"
+}
