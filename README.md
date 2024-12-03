@@ -24,43 +24,68 @@ This Task Management app was built using Node.js JavaScript,and React. It allows
 ## Setup 
 
 ### 1. git clone https://github.com/Londeka-Zikalala/task-management-app.git
- ### cd task-management-app
 
-### 2. Database setup
-- Setup a local database connection , run the scripts in `/sql/Tables.sql`
-  a. Tables.sql to create the tables
-- Update db.ts by adding your database string to the '' or : **Set up environment variables for PostgreSQL connection:**
-     - Create a .env file in the root directory of the app.
-     - Add your PostgreSQL connection string to the `.env` file.
+bash
+```
+ cd task-management-app
+ ```
+
+### 2. Database setup and migration
+
+   *Create the database:*
+
+1. First, create a database in PostgreSQL. You can do this by running the following command in the PostgreSQL shell:
+
+bash
+
+```CREATE DATABASE task_management_db;```
+
+2. Run the SQL migration:
+   - Inside the server folder, you will find the SQL migration script located at /sql/Tables.sql.
+
+    bash
+   
+   ```psql -U your_database_user -d task_management_db -f sql/Tables.sql```
+   
+ ### 3. Environment Variables 
+ 
+ 1. Add your PostgreSQL connection string to the `.env` file.
+ 2. Generate a jwt secret key and add it to the `env` file.
+    
+    bash
+    
+      ``` openssl rand -base64 32 ```
 
 --- 
 ## Installation 
 
-  ### 1. run npm install in each folder server and client
 
-  ### 2. run npm test - if the tests are passing, everything is running smoothly and you're ready to go.
+   1. run npm install in each folder server and client
 
-  ### 3. run node server/index.js to run the server
+   2. *From the server* run ``` npm test ``` - if the tests are passing, everything is running smoothly and you're ready to go.
 
-  ### 4. run npm start/client in the client folder to start the react app
+   3. *Start the Server* run: ``` node server/index.js ```
+
+   4. *Start the React app* from the client folder : run ``` npm start ```
 --- 
 ## Usage 
 
 ### Task Management Routes
-- The app has key routes related to user-task management: 
 
-1. GET /tasks/user: Fetches tasks  to a belonging to the logged in user. 
+**The app has key routes related to user-task management:**
+
+1. `GET` /tasks/user: Fetches tasks  to a belonging to the logged in user. 
 Authentication
-2. POST /users/register: Registers a new user
-3. POST /users/login: Logs in an existing user and provides a JWT token for authentication.
-4. POST /tasks/create: Creates a new task.
-5. POST /tasks/update: Updates a task's status to "completed". 
-6. POST /tasks/delete: Deletes a task. 
+2. `POST` /users/register: Registers a new user
+3. `POST` /users/login: Logs in an existing user and provides a JWT token for authentication.
+4. `POST` /tasks/create: Creates a new task.
+5. `POST` /tasks/update: Updates a task's status to "completed". 
+6. `POST` /tasks/delete: Deletes a task. 
 
 ### Example Usage : 
 
       JavaScript
-        ``
+        ```
         import axios from 'axios';
         
         const createTask = async () => {
@@ -80,12 +105,16 @@ Authentication
         
         createTask();
         
-        ``
+        ```
 
   --- 
+  
   ## File Structure 
-``
+  
+bash 
+```
 task-management-app/
+
 │
 
 ├── client/
@@ -133,5 +162,5 @@ task-management-app/
 |   ├── package.json             # Dependencies and scripts
 
 └── README.md                       # Project documentation
-``
+```
 
