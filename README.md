@@ -87,28 +87,51 @@ Authentication
 ``
 task-management-app/
 │
+
 ├── client/
+
 │   ├── public/
+
 │   │   ├── index.html
+
 │   ├── src/
+
 │   │   ├── App.jsx
+
 │   │   ├── index.jsx
+
 │   │   ├── LoginForm.jsx
+
 |   |   |── tasks.css              # styling for tasks table
+
 │   │   ├── Taskscreen.jsx
+
 │   ├── package.json                # Dependencies and scripts
+
 │
+
 ├── server/
+
 │   ├── db.ts                       # Database connection setup
+
 │   ├── service/                    # Business logic for tasks and user management
+
 │   │   ├── TaskManager.js          # Task management logic (CRUD operations)
+
 │   │   ├── UserManagement.js       # User management logic
+
 │   ├── routes/                     # Express routes
+
 │   │   ├── TaskManagementRoutes.js # Routes for task management
+
 │   │   ├── UserManagementRoutes.js # Routes for user management
+
 │   ├── index.js                    # Express server initialization
+
 │   ├── .env                         # Environment variables
+
 |   ├── package.json             # Dependencies and scripts
+
 └── README.md                       # Project documentation
 ``
 
