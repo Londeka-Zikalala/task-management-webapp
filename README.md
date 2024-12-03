@@ -7,6 +7,7 @@
 3. [Installation](#Installation)
 4. [Usage Example](#Usage)
 5. [File Structure](#Files)
+6. [Assumptions and improvements needed](#Considerations)
 
 --- 
 ## Introduction 
@@ -163,4 +164,23 @@ task-management-app/
 
 └── README.md                       # Project documentation
 ```
+----
+## Assumptions and Improvements 
+
+### Assumptions 
+
+**1. Users are not assigned any tasks**
+**2. Small production / personal use**
+**3. App must be built to run locally, no need for CLI**
+
+### Improvements Needed
+
+**1. Task duplication fixed**
+**2. Validations for registering and login**
+**3. Routing errors, losing the frontend connection often**
+**4. Capturing the username for the Taskscreen h1.**
+
+
+
+
 
