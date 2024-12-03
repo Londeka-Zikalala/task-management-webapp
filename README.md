@@ -170,14 +170,19 @@ task-management-app/
 ### Assumptions 
 
 **1. Users are not assigned any tasks**
+
 **2. Small production / personal use**
+
 **3. App must be built to run locally, no need for CLI**
 
 ### Improvements Needed
 
 **1. Task duplication fixed**
+
 **2. Validations for registering and login**
+
 **3. Routing errors, losing the frontend connection often**
+
 **4. Capturing the username for the Taskscreen h1.**
 
 
