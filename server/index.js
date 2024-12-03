@@ -26,14 +26,14 @@ userRoutes = new userManagementRoutes()
 
 app.post('/register', userRoutes.registerUser);
 app.post('/login', userRoutes.loginUser);
-app.get('/tasks/user', userRoutes.viewTasksByUser)
+app.get('/tasks/user',userRoutes.authenticateToken, userRoutes.viewTasksByUser)
 
 // Tasks endpoints
 
 let taskManager = TaskManager(db)
 let taskRoutes = TaskRoutes(taskManager)
 
-app.post('/tasks/create',taskRoutes.createTask);
+app.post('/tasks/create', userRoutes.authenticateToken, taskRoutes.createTask);
 app.post('/tasks/delete', taskRoutes.deleteTask);
 app.post('/tasks/update', taskRoutes.updateTaskStatus)
 

@@ -63,7 +63,7 @@ export default function userManagementRoutes (){
 
                 // get a token for the user 
                 let token = jwt.sign({id: existingUser.id, username: existingUser.username, password: existingUser.password}, process.env.SECRET_KEY, {expiresIn:'1h'})
-
+                    console.log(token)
                 res.status(201).json({message: `Login successful!`, token})
             }
            } catch(error){
@@ -75,29 +75,36 @@ export default function userManagementRoutes (){
 
         // JWT middleware to authenticat token 
         const authenticateToken = async function  (req, res, next){
-            let token = req.headers.authorization?.split(' ')[1];
+            const authHeader = req.headers.authorization; 
+            const token = authHeader && authHeader.split(' ')[1]; 
+            
             if(!token){
                 res.status(401).json({message: `Tokem not authorised`});
             }
-            jwt.verify(token, process.env.SECRET_KEY, (err, decoded)=>{
-                    if(err){
-                        res.status(401).json({message: `Token not found`})
-                    }
-                  return req.user = decoded 
-            })
-        }
+            try {
+                // Verify token
+                const decoded = jwt.verify(token, process.env.SECRET_KEY);
+                req.user = decoded; 
+                next(); 
+            } catch (err) {
+                console.error('Token verification failed:', err);
+                return res.status(403).json({ message: 'Token not valid' });
+            }
+            }
+        
 
         //  View the tasls by the logged in user
 
             async function viewTasksByUser(req, res, next) {
                 try{
                     
-                    let userId = req.user.id
+                    let userId = req.user?.id
+                    console.log(userId)
 
                     //get the tasks by user 
     
-                       let tasks = await this.userManagement.viewUserTasks(userId)
-    
+                       let tasks = await userManagement.viewUserTasks(userId)
+                        console.log(tasks)
                        if(tasks.length <= 0 ){
     
                          res.status(401).json({message:`No tasks found`})
