@@ -59,7 +59,7 @@ Authentication
 
 ### Example Usage : 
 
-        Typescript
+      JavaScript
         ``
         import axios from 'axios';
         
@@ -83,7 +83,8 @@ Authentication
         ``
 
   --- 
-  ## File Structure {# Files}
+  ## File Structure 
+``
 task-management-app/
 │
 ├── client/
@@ -109,4 +110,5 @@ task-management-app/
 │   ├── .env                         # Environment variables
 |   ├── package.json             # Dependencies and scripts
 └── README.md                       # Project documentation
+``
 
